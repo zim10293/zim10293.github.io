@@ -8,7 +8,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
-            max-width: 650px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
             background-color: white;
@@ -16,138 +16,101 @@
             position: relative;
             overflow: hidden;
         }
-
         h1 {
             font-size: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
-
         h2 {
             font-size: 1.5rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
-
         p {
             margin-bottom: 1rem;
         }
-
         a {
             color: #333;
             text-decoration: underline;
         }
-
         a:hover {
             text-decoration: none;
         }
-
-        .links {
+        .bio {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-top: 2rem;
         }
-
-        .links a {
-            margin-right: 20px;
+        .company-info, .project-info {
+            padding: 20px;
         }
-
+        .project-image {
+            width: 100%;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+        .links {
+            margin-top: 2rem;
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        .links a {
+            margin: 0 10px;
+            display: inline-block;
+        }
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid #eee;
             font-size: 0.9rem;
             color: #666;
+            grid-column: 1 / -1;
         }
-
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: -1;
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <canvas id="particleCanvas"></canvas>
-    
     <h1>Julien Mackenzie</h1>
     
-    <p>Welcome to my website. [Your introduction here]</p>
+    <div class="bio">
+        <p>[Your bio here - Add a brief introduction about yourself, your background, and what you do. This section will appear centered above the two columns.]</p>
+    </div>
     
-    <h2>About</h2>
-    <p>[About section content]</p>
-    
-    <h2>Projects</h2>
-    <p>[Projects section content]</p>
-    
-    <div class="links">
-        <a href="#">Email</a>
-        <a href="#">LinkedIn</a>
+    <div class="content-wrapper">
+        <div class="company-info">
+            <h2>Company Name</h2>
+            <p>[Company description here - Add your company information and description in this section. This can include your role, responsibilities, and any other relevant details about the company.]</p>
+        </div>
+        
+        <div class="project-info">
+            <h2>Project Title</h2>
+            <img src="/api/placeholder/600/400" alt="Project Image" class="project-image">
+            <p>[Project description here]</p>
+        </div>
+
+        <div class="links">
+            <a href="mailto:julien.mackenzie3@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/julienmackenzie" target="_blank">LinkedIn</a>
+        </div>
+        
+        <footer>
+            © <span id="year"></span> Julien Mackenzie
+        </footer>
     </div>
 
-    <footer>
-        © 2024 Julien Mackenzie
-    </footer>
-
     <script>
-        const canvas = document.getElementById("particleCanvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        let particles = [];
-
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.size > 0.2) this.size -= 0.02;
-            }
-
-            draw() {
-                ctx.fillStyle = "rgba(128, 0, 128, 0.5)";
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function handleParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-                if (particles[i].size <= 0.2) {
-                    particles.splice(i, 1);
-                    i--;
-                }
-            }
-        }
-
-        window.addEventListener("mousemove", (event) => {
-            for (let i = 0; i < 5; i++) {
-                particles.push(new Particle(event.x, event.y));
-            }
-        });
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            handleParticles();
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
