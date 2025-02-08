@@ -54,18 +54,19 @@
             padding: 20px;
         }
         
-              .photo-container {
-            display: flex; /* Change to flexbox */
+         .photo-container {
+            display: flex;
             gap: 20px;
             margin-top: 1rem;
-            justify-content: space-between; /* This will space them evenly */
+            justify-content: space-between;
         }
         
         .project-image {
-            height: 750px; /* Set the height explicitly */
-            width: auto; /* Let width adjust automatically */
+            max-height: 500px; /* Set a reasonable max height */
+            width: auto;
+            object-fit: contain; /* This ensures the image keeps its proportions */
         }
-            
+                    
         }
         .projects-column {
             display: flex;
