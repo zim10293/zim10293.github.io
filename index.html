@@ -54,10 +54,12 @@
             padding: 20px;
         }
         .photo-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 1rem;
+        align-items: center; 
+}    
         }
         .projects-column {
             display: flex;
@@ -65,9 +67,10 @@
             gap: 40px;
         }
         .project-image {
-            width: 100%;
+            width: auto;
+            max-width: 100%;
+            heihgt:auto;
             border-radius: 0px;
-            object-fit: cover;
         }
         .links {
             margin-top: 2rem;
