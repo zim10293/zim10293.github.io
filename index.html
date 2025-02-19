@@ -61,8 +61,13 @@
 }
 
 .project-image {
-    height: 250px;  /* that's it. that's the fix. no more fancy stuff */
+    height: 250px;
     width: auto;
+}
+
+/* specifically target spatial sound imgs */
+.project-info:nth-of-type(2) .project-image {
+    height: 300px; /* bigger = better readability */
 }
 
 @media (max-width: 768px) {
@@ -74,7 +79,11 @@
     .project-image {
         height: 200px;
     }
-
+    
+    .project-info:nth-of-type(2) .project-image {
+        height: 250px;
+    }
+}
 
 
 
