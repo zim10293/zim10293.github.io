@@ -60,15 +60,18 @@
     display: flex;
     gap: 20px;
     margin-top: 1rem;
+    width: 100%;
 }
 
 .project-image {
     height: 350px;
     width: auto;
+    max-width: calc(50% - 10px);
 }
 
 .project-info:nth-of-type(2) .project-image {
     height: 400px;
+    max-width: calc(50% - 10px); /* CRUCIAL for alignment */
 }
 
 @media (max-width: 768px) {
@@ -78,6 +81,7 @@
     }
     .project-image {
         height: 250px;
+        max-width: 100%;
     }
 
 
