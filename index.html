@@ -58,11 +58,14 @@
     display: flex;
     gap: 20px;
     margin-top: 1rem;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .project-image {
     height: 350px;
     width: auto;
+    max-width: calc(50% - 10px);
 }
 
 .project-info:nth-of-type(2) .project-image {
@@ -74,10 +77,11 @@
         flex-direction: column;
         align-items: center;
     }
-    
     .project-image {
         height: 250px;
+        max-width: 100%;
     }
+
 
 
 
