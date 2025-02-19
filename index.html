@@ -57,35 +57,28 @@
 }
 
 .photo-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 20px;
-    width: 100%;
-    aspect-ratio: 16/9;  /* establish consistent container ratio */
+    margin-top: 1rem;
 }
 
 .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* maintains aspect ratio while filling space */
-    border-radius: 4px;  /* optional: soft corners */
+    height: 350px;
+    width: auto;
 }
 
-/* remove the manual height adjustments */
 .project-info:nth-of-type(2) .project-image {
-    height: auto;
+    height: 390px;
 }
 
 @media (max-width: 768px) {
     .photo-container {
-        grid-template-columns: 1fr;
-        aspect-ratio: auto;  /* let it flow naturally on mobile */
+        flex-direction: column;
+        align-items: center;
     }
-    
     .project-image {
-        aspect-ratio: 16/9;  /* maintain consistent image ratio on mobile */
+        height: 250px;
     }
-
 
 
 
